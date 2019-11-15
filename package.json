@@ -1,0 +1,35 @@
+{
+  "name": "v-party",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env PORT=10888 react-scripts start",
+    "build": "react-scripts build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "react-hot-loader": "^4.7.1",
+    "react-scripts": "^2.1.5"
+  },
+  "dependencies": {
+    "@vkontakte/icons": "^1.11.2",
+    "@vkontakte/vk-connect": "^1.6.9",
+    "@vkontakte/vkui": "^2.33.1",
+    "@vkontakte/vkui-connect": "^1.5.4",
+    "babel-eslint": "^9.0.0",
+    "core-js": "^2.6.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
