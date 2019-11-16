@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 
@@ -7,9 +8,17 @@ const ContentContainer = styled.div`
 /**
  * Content container with header, 100vh
  */
-const Content = ({ children }: { children: JSX.Element[] | JSX.Element }) => (
+const Content = ({
+  children,
+  showLogo = true,
+  title
+}: {
+  children: JSX.Element[] | JSX.Element;
+  showLogo?: boolean;
+  title: string;
+}) => (
   <div>
-    <Header />
+    <Header showLogo={showLogo} />
     <ContentContainer>{children}</ContentContainer>
   </div>
 );
