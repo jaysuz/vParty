@@ -15,7 +15,7 @@ const StyledButton = styled(Button)`
   width: 100%;
 `;
 
-const Party = ({ go }: { go: (e: any) => void }) => {
+const Party = ({ go }: { go: (e: Panels) => void }) => {
   return (
     <OnboardingContainer>
       <OnboardingImage src={party} />
@@ -24,7 +24,7 @@ const Party = ({ go }: { go: (e: any) => void }) => {
         Have fun on the party and don’t worry about the money.
       </OnboardingText>
       <ButtonContainer>
-        <StyledButton size="l" onClick={go} data-to="ideation">
+        <StyledButton size="l" onClick={() => go('ideation')}>
           Let's get started!
         </StyledButton>
       </ButtonContainer>

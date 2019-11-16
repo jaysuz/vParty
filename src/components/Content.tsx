@@ -8,16 +8,10 @@ const ContentContainer = styled.div`
 /**
  * Content container with header, 100vh
  */
-const Content = ({
-  children,
-  showLogo = true,
-  ...rest
-}: {
-  children: JSX.Element[] | JSX.Element;
+const Content: React.FC<{
   showLogo?: boolean;
-  title: string;
-} & React.FC &
-  any) => (
+  id?: string;
+}> = ({ children, showLogo = true, ...rest }) => (
   <div {...rest}>
     <Header showLogo={showLogo} />
     <ContentContainer>{children}</ContentContainer>

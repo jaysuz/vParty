@@ -49,13 +49,13 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
   return (
       <div id={id}>
         <h1>Suggestions on: {selectedTheme}</h1>
-        <button onClick={go} data-to="ideation">Back</button>
+        <button onClick={() => go('ideation')}>Back</button>
         {items.map((item, i) => <div key={i}>
           {item.name}
           <img height={200} src={item.picture} alt={item.name}/>
         </div>)}
         <div>
-          <button className='button-done' onClick={go} data-to="dashboard">
+          <button className='button-done' onClick={() => go('dashboard')}>
             Done
           </button>
         </div>

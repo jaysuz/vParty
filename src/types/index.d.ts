@@ -1,1 +1,3 @@
-declare module "@vkontakte/vkui-connect";
+declare module '@vkontakte/vkui-connect';
+
+type Panels = 'onboarding' | 'suggestion' | 'ideation' | 'dashboard';
