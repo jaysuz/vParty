@@ -4,7 +4,9 @@ import Header from './Header';
 const ContentContainer = styled.div`
   height: 100vh;
 `;
-
+/**
+ * Content container with header, 100vh
+ */
 const Content = ({ children }: { children: JSX.Element[] | JSX.Element }) => (
   <div>
     <Header />
