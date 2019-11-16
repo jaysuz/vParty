@@ -1,7 +1,7 @@
 /* item card */
 .title {
     text-align: center;
-    padding: 90px 0;
+    padding: 90px 0 30px 0;
     font-weight: bold;
     font-size: 24px;
 }
@@ -13,6 +13,7 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     overflow: hidden;
+    margin-bottom: 24px;
 }
 
 .item-image {
@@ -26,6 +27,7 @@
     display: flex;
     justify-content: space-around;
     flex-flow: wrap;
+    margin-bottom: 64px;
 }
 
 .item-name {

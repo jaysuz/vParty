@@ -25,7 +25,7 @@ const firebaseConfig = {
 class App extends React.Component<
   {},
   {
-    activePanel: any;
+    activePanel: Panels;
     fetchedUser: any;
     themes: any[];
     selectedTheme: any;
@@ -38,7 +38,7 @@ class App extends React.Component<
     firebase.initializeApp(firebaseConfig);
 
     this.state = {
-      activePanel: "suggestion",
+      activePanel: "ideation",
       fetchedUser: null,
       themes: ["cool", "noice", "sweet"],
       selectedTheme: null,
@@ -71,8 +71,8 @@ class App extends React.Component<
     connect.send("VKWebAppGetAuthToken", { app_id: 7210223, scope: "" });
   }
 
-  go = (e: any) => {
-    this.setState({ activePanel: e.currentTarget.dataset.to });
+  go = (id: Panels) => {
+    this.setState({ activePanel: id });
   };
 
   updateTheme = (theme: any) => {
@@ -81,7 +81,7 @@ class App extends React.Component<
 
   render() {
     return (
-      <View id="view" className='global' activePanel={this.state.activePanel} header={false}>
+      <View className='global' activePanel={this.state.activePanel} header={false}>
         <Onboarding id="onboarding" go={this.go} />
         <Suggestion
           id="suggestion"

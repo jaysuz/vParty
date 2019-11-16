@@ -39,9 +39,12 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
   }, [token]);
 
   const getItemsByTheme = (theme) => {
+    console.log(theme)
     switch (theme) {
-      case 'party':
-        return '4000109446937,32222023154';
+      case 'birthday':
+        return '32888179722,32987433562,4000250046991,33000572377,32969133570,4000075418547,33005748499';
+      case 'halloween':
+        return '4000109446937,32222023154,32993494222,32384618692,32993494222';
       default:
         return '4000109446937,32222023154';
     }
@@ -64,10 +67,10 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
         </div>
 
         <div className="footer">
-          <button className="button-back" onClick={go} data-to="ideation">
+          <button className="button-back" onClick={() => go('ideation')}>
             Back
           </button>
-          <button className="button-done" onClick={go} data-to="dashboard">
+          <button className="button-done" onClick={() => go('dashboard')}>
             Done
           </button>
         </div>

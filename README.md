@@ -3,6 +3,17 @@
 `npx @vkontakte/create-vk-app <folder name>`
 
 ## How to start
+First enforce http:
+
+On windows:
+```cmd
+set HTTPS=true
+```
+
+or on Linux/MacOS:
+```bash
+export HTTPS=true
+```
 
 Go to created folder and run:
 `yarn start` || `npm start` — this will start dev server with hot reload on `localhost:10888`.
