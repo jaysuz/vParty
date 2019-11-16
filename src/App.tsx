@@ -1,6 +1,6 @@
 import React from 'react';
 import connect from '@vkontakte/vkui-connect';
-import {Root, View} from '@vkontakte/vkui';
+import {View} from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Start from './pages/Start';
@@ -64,22 +64,20 @@ class App extends React.Component<{},
 
   render() {
     return (
-        <Root activeView="view">
-          <View id="view" activePanel={this.state.activePanel} header={false}>
-            <Start id="start" go={this.go}/>
-            <Onboarding id="onboarding"/>
-            <Suggestion id="suggestion" go={this.go} token={this.state.token}
-                        selectedTheme={this.state.selectedTheme}/>
-            <Ideation
-                id="ideation"
-                go={this.go}
-                updateTheme={this.updateTheme}
-                selectedTheme={this.state.selectedTheme}
-                suggestions={this.state.themes}
-            />
-            <Dashboard id="dashboard" go={this.go}/>
-          </View>
-        </Root>
+        <View id="view" activePanel={this.state.activePanel} header={false}>
+          <Start id="start" go={this.go}/>
+          <Onboarding id="onboarding"/>
+          <Suggestion id="suggestion" go={this.go} token={this.state.token}
+                      selectedTheme={this.state.selectedTheme}/>
+          <Ideation
+              id="ideation"
+              go={this.go}
+              updateTheme={this.updateTheme}
+              selectedTheme={this.state.selectedTheme}
+              suggestions={this.state.themes}
+          />
+          <Dashboard id="dashboard" go={this.go}/>
+        </View>
     );
   }
 }
