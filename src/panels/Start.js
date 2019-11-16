@@ -18,7 +18,7 @@ class Start extends React.Component {
     render() {
         return (
         	<Panel id={this.props.id}>
-				<PanelHeader>vPary</PanelHeader>
+				<PanelHeader>vParty</PanelHeader>
 				<Div>
 					Welcome vkParty, the ultimate platform to organize all the
 					for your super amazing party.
