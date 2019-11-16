@@ -7,7 +7,7 @@ import './general.css';
 import Onboarding from "./pages/onboarding";
 import Ideation from "./pages/Ideation";
 import Suggestion from "./pages/suggestion/Suggestion";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
