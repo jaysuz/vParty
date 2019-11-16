@@ -5,11 +5,11 @@ import Discuss from "./Discuss";
 import Party from "./Party";
 import Dots from "./Dots";
 
-const Onboarding = ({ id }: { id: "onboarding" }) => {
+const Onboarding = ({ id, go }: { id: "onboarding"; go: (e: any) => void }) => {
   const [index, setIndex] = React.useState(0);
   const onChangeIndex = (newIndex: number) => setIndex(newIndex);
   return (
-    <>
+    <div id={id}>
       <div
         style={{
           position: "absolute",
@@ -32,10 +32,10 @@ const Onboarding = ({ id }: { id: "onboarding" }) => {
       >
         <Welcome />
         <Discuss />
-        <Party />
+        <Party go={go} />
       </SwipeableViews>
       <Dots length={3} active={index} onChangeIndex={onChangeIndex} />
-    </>
+    </div>
   );
 };
 
