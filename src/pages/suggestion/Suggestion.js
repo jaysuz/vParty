@@ -1,6 +1,6 @@
 import React from 'react';
 import connect from '@vkontakte/vkui-connect';
-import './Suggestion.css';
+import './suggestion.css';
 
 // TODO: remove later
 /*
@@ -50,10 +50,18 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
       <div id={id}>
         <h1>Suggestions on: {selectedTheme}</h1>
         <button onClick={go} data-to="ideation">Back</button>
-        {items.map((item, i) => <div key={i}>
-          {item.name}
-          <img height={200} src={item.picture} alt={item.name}/>
-        </div>)}
+
+        <div className="item-container">
+          {items.map((item, i) =>
+              <div className="item-card" key={i}>
+                <img className="item-image" width={171} height={100}
+                     src={item.picture} alt={item.name}/>
+                <div className="item-name">{item.name.substring(0, 12)}</div>
+                <div className="item-price">{item.price}.–</div>
+              </div>,
+          )}
+        </div>
+
         <div>
           <button className='button-done' onClick={go} data-to="dashboard">
             Done
