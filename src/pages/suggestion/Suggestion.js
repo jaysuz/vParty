@@ -1,6 +1,7 @@
 import React from 'react';
 import connect from '@vkontakte/vkui-connect';
 import './suggestion.css';
+import Header from '../../components/Header';
 
 // TODO: remove later
 /*
@@ -48,8 +49,8 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
 
   return (
       <div id={id}>
-        <h1>Suggestions on: {selectedTheme}</h1>
-        <button onClick={go} data-to="ideation">Back</button>
+        <Header showLogo={true}/>
+        <div className="title">Add to your party basket</div>
 
         <div className="item-container">
           {items.map((item, i) =>
@@ -62,8 +63,11 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
           )}
         </div>
 
-        <div>
-          <button className='button-done' onClick={go} data-to="dashboard">
+        <div className="footer">
+          <button className="button-back" onClick={go} data-to="ideation">
+            Back
+          </button>
+          <button className="button-done" onClick={go} data-to="dashboard">
             Done
           </button>
         </div>

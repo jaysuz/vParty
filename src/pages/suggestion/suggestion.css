@@ -1,13 +1,9 @@
-.button-done {
-    background: #097DBE;
-    border-radius: 7px;
-    width: 64px;
-    height: 33px;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 21px;
+/* item card */
+.title {
     text-align: center;
-    color: white;
+    padding: 90px 0;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .item-card {
@@ -42,4 +38,43 @@
     margin: 5px 0 0 5px;
     font-size: 11px;
     font-weight: normal;
+}
+
+/* footer */
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 64px;
+    z-index: 100;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.button-done {
+    background: #097DBE;
+    border-radius: 7px;
+    width: 64px;
+    height: 33px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 33px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    right: 16px;
+    top: 15px;
+}
+
+.button-back {
+    color: #097DBE;
+    width: 64px;
+    height: 33px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 33px;
+    text-align: center;
+    position: absolute;
+    left: 16px;
+    top: 15px;
 }
