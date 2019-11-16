@@ -1,19 +1,19 @@
 import React from 'react';
-import logo from '../../img/logo.png';
+import OnboardingContainer from './components/OnboardingContainer';
+import OnboardingLogo from './components/OnboardingLogo';
+import Title from '../../components/Title';
 
 const Welcome = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <img src={logo} style={{ width: 170, marginTop: '20vh' }} />
+    <OnboardingContainer>
+      <OnboardingLogo />
       <div style={{ marginTop: '20vh' }}>
-        <h1 style={{ fontWeight: 'bold', fontSize: 24 }}>
-          Organise your Party
-        </h1>
-        <p style={{ fontSize: 18, padding: '0px 50px' }}>
+        <Title>Organise your Party</Title>
+        <p style={{ fontSize: 18, padding: '0px 50px', marginTop: '5vh' }}>
           Use vParty to organise and purchase all your items together
         </p>
       </div>
-    </div>
+    </OnboardingContainer>
   );
 };
 export default Welcome;
