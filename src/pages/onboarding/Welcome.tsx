@@ -2,6 +2,7 @@ import React from 'react';
 import OnboardingContainer from './components/OnboardingContainer';
 import OnboardingLogo from './components/OnboardingLogo';
 import Title from '../../components/Title';
+import OnboardingText from './components/OnboardingText';
 
 const Welcome = () => {
   return (
@@ -9,9 +10,9 @@ const Welcome = () => {
       <OnboardingLogo />
       <div style={{ marginTop: '20vh' }}>
         <Title>Organise your Party</Title>
-        <p style={{ fontSize: 18, padding: '0px 50px', marginTop: '5vh' }}>
+        <OnboardingText>
           Use vParty to organise and purchase all your items together
-        </p>
+        </OnboardingText>
       </div>
     </OnboardingContainer>
   );
