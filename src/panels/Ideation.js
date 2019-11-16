@@ -36,8 +36,8 @@ const Ideation = props => (
         <Group title="Select theme">
             { props.suggestions.length &&
             <List>
-                { props.suggestions.map(theme => (
-                    <Cell onClick={() => props.updateTheme(theme)}
+                { props.suggestions.map((theme, i) => (
+                    <Cell key={i} onClick={() => props.updateTheme(theme)}
                           asideContent={props.selectedTheme === theme ? <Icon24Done fill="var(--accent"/> : null}>
                         { theme }
                     </Cell>

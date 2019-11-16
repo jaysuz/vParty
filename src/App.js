@@ -13,7 +13,7 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			activePanel: 'start',
+			activePanel: 'suggestion',
 			fetchedUser: null,
 			themes: [
 				'cool',
@@ -65,7 +65,7 @@ class App extends React.Component {
 						  selectedTheme={this.state.selectedTheme}
 						  suggestions={this.state.themes}
 				/>
-				<Suggestion id="suggestion" go={this.go} selectedTheme={this.state.selectedTheme}/>
+				<Suggestion id="suggestion" go={this.go} token={this.state.token} selectedTheme={this.state.selectedTheme}/>
 				<Dashboard id="dashboard" go={this.go}/>
 			</View>
 		);
