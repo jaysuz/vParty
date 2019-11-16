@@ -11,7 +11,7 @@ const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: any) => void }) => {
   const onChangeIndex = (newIndex: number) => setIndex(newIndex);
   return (
     <div id={id}>
-      <Header />
+      <Header showLogo={index !== 0} />
       <SwipeableViews
         style={{ height: '100vh' }}
         containerStyle={{ height: '100%' }}
