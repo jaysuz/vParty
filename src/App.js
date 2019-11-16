@@ -9,12 +9,13 @@ import Start from './panels/Start';
 import Ideation from "./panels/Ideation";
 import Suggestion from './panels/Suggestion'
 
+import Onboarding from "./pages/onboarding"
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			activePanel: 'home',
+			activePanel: 'onboarding',
 			fetchedUser: null,
 			themes: [
 				'cool',
@@ -59,6 +60,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<View activePanel={this.state.activePanel}>
+				<Onboarding id="onboarding"/>
 				<Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
 				<Persik id="persik" go={this.go} />
 				<Start id="start" go={this.go}/>
