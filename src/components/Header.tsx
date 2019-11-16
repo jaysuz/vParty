@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../img/logo-no-party.png';
 
 const Container = styled.div`
   position: absolute;
@@ -12,6 +13,20 @@ const Container = styled.div`
   z-index: 100;
 `;
 
-const Header = () => <Container />;
+const Logo = styled.img`
+  position: absolute;
+  z-index: 101;
+  right: 15px;
+  top: 17px;
+  width: 42px;
+  height: 46px;
+`;
+
+const Header = () => (
+  <>
+    <Logo src={logo} />
+    <Container />
+  </>
+);
 
 export default Header;

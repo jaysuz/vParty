@@ -12,7 +12,6 @@ const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: any) => void }) => {
   return (
     <div id={id}>
       <Header />
-
       <SwipeableViews
         style={{ height: '100vh' }}
         containerStyle={{ height: '100%' }}
