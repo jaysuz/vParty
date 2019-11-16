@@ -1,5 +1,5 @@
-import React from "react";
-import { Button } from "@vkontakte/vkui";
+import React from 'react';
+import { Button } from '@vkontakte/vkui';
 
 const Party = ({ go }: { go: (e: any) => void }) => {
   return (

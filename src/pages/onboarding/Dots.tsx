@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react';
 
 const dotStyles = {
   root: {
-    cursor: "pointer",
+    cursor: 'pointer',
     border: 0,
-    background: "none",
+    background: 'none',
     padding: 0,
-    outline: "none"
+    outline: 'none'
   },
   dot: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
     height: 14,
     width: 14,
-    borderRadius: "50%",
+    borderRadius: '50%',
     margin: 3,
-    border: "1px solid #C4C4C4",
+    border: '1px solid #C4C4C4',
     marginLeft: 22
   },
   active: {
-    backgroundColor: "#C4C4C4"
+    backgroundColor: '#C4C4C4'
   }
 };
 
@@ -61,12 +61,12 @@ const Dots = ({
   return (
     <div
       style={{
-        position: "absolute",
+        position: 'absolute',
         bottom: 50,
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center"
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center'
       }}
     >
       {new Array(length).fill(0).map((v, i) => (
