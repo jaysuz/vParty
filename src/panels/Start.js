@@ -28,17 +28,6 @@ class Start extends React.Component {
 						Let's go
 					</Button>
 				</Div>
-				<Div>
-					<Button size="xl" level="2" onClick={this.props.go} data-to="home">
-						Go to template
-					</Button>
-				</Div>
-				<Div>
-					<Button sizle="xl" onClick={() => this.reactiveTest('yo it tweaks')}>
-						I am reactive
-					</Button>
-				</Div>
-				{ this.state.showExtra && <Div>{this.state.textExtra}</Div>}
 			</Panel>
         );
     }

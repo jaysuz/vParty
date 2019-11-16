@@ -3,18 +3,17 @@ import connect from '@vkontakte/vkui-connect';
 import { View } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
 import Start from './panels/Start';
 import Ideation from "./panels/Ideation";
-import Suggestion from './panels/Suggestion'
+import Suggestion from './panels/Suggestion';
+import Dashboard from "./panels/Dashboard";
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			activePanel: 'home',
+			activePanel: 'start',
 			fetchedUser: null,
 			themes: [
 				'cool',
@@ -59,8 +58,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<View activePanel={this.state.activePanel}>
-				<Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
-				<Persik id="persik" go={this.go} />
 				<Start id="start" go={this.go}/>
 				<Ideation id="ideation"
 						  go={this.go}
@@ -68,7 +65,8 @@ class App extends React.Component {
 						  selectedTheme={this.state.selectedTheme}
 						  suggestions={this.state.themes}
 				/>
-				<Suggestion id="suggestion" go={this.go}/>
+				<Suggestion id="suggestion" go={this.go} selectedTheme={this.state.selectedTheme}/>
+				<Dashboard id="dashboard" go={this.go}/>
 			</View>
 		);
 	}
