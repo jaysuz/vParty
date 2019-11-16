@@ -20,7 +20,8 @@ const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: any) => void }) => {
           background:
             'linear-gradient(180deg, #C4C4C4 0%, rgba(196, 196, 196, 0) 100%)',
           opacity: 0.5,
-          zIndex: 100
+          zIndex: 100,
+          pointerEvents: 'none'
         }}
       />
 
