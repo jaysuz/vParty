@@ -7,7 +7,7 @@ const StyledH1 = styled.h1`
 `;
 
 const Title = ({ children }: { children: string }) => (
-  <StyledH1 style={{ fontWeight: 'bold', fontSize: 24 }}>{children}</StyledH1>
+  <StyledH1>{children}</StyledH1>
 );
 
 export default Title;
