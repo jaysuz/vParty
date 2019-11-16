@@ -2,10 +2,11 @@ import React from "react";
 import connect from "@vkontakte/vkui-connect";
 import { View } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
+import './general.css';
 
 import Onboarding from "./pages/onboarding";
 import Ideation from "./pages/Ideation";
-import Suggestion from "./pages/Suggestion";
+import Suggestion from "./pages/suggestion/Suggestion";
 import Dashboard from "./pages/Dashboard";
 
 import * as firebase from 'firebase/app';
@@ -80,7 +81,7 @@ class App extends React.Component<
 
   render() {
     return (
-      <View id="view" activePanel={this.state.activePanel} header={false}>
+      <View id="view" className='global' activePanel={this.state.activePanel} header={false}>
         <Onboarding id="onboarding" go={this.go} />
         <Suggestion
           id="suggestion"
