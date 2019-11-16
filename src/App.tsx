@@ -3,11 +3,24 @@ import connect from '@vkontakte/vkui-connect';
 import {View} from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+
 import Start from './pages/Start';
 import Ideation from './pages/Ideation';
 import Suggestion from './pages/Suggestion';
 import Dashboard from './pages/Dashboard';
 import Onboarding from './pages/onboarding';
+
+const firebaseConfig = {
+    apiKey: 'AIzaSyClvn2v_Q-fIhswD2OxdKPo9ox1ucWFWds',
+    authDomain: 'vparty-2e352.firebaseapp.com',
+    databaseURL: 'https://vparty-2e352.firebaseio.com',
+    projectId: 'vparty-2e352',
+    storageBucket: 'vparty-2e352.appspot.com',
+    messagingSenderId: '633693236641',
+    appId: '1:633693236641:web:04ff34eda4a7e133a3efe0'
+};
 
 class App extends React.Component<{},
     {
@@ -19,6 +32,8 @@ class App extends React.Component<{},
     }> {
   constructor(props: any) {
     super(props);
+
+    firebase.initializeApp(firebaseConfig);
 
     this.state = {
       activePanel: 'start',
@@ -72,6 +87,7 @@ class App extends React.Component<{},
           <Ideation
               id="ideation"
               go={this.go}
+              db={firebase.firestore()}
               updateTheme={this.updateTheme}
               selectedTheme={this.state.selectedTheme}
               suggestions={this.state.themes}
