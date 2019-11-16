@@ -24,7 +24,7 @@ class App extends React.Component<
     super(props);
 
     this.state = {
-      activePanel: "home",
+      activePanel: "onboarding",
       fetchedUser: null,
       themes: ["cool", "noice", "sweet"],
       selectedTheme: null,
@@ -67,7 +67,7 @@ class App extends React.Component<
 
   render() {
     return (
-      <Root activeView="viewWithHeader">
+      <Root activeView="view">
         <View
           id="viewWithHeader"
           activePanel={this.state.activePanel}
