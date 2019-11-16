@@ -1,6 +1,6 @@
 import React from "react";
 
 const Welcome = () => {
-  return <div>Welcome</div>;
+  return <div style={{ height: "100%", backgroundColor: "blue" }}>Welcome</div>;
 };
 export default Welcome;
