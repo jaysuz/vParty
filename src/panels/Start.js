@@ -24,7 +24,7 @@ class Start extends React.Component {
 					for your super amazing party.
 				</Div>
 				<Div>
-					<Button size="xl" level="2" onClick={this.props.go} data-to="home">
+					<Button size="xl" level="2" onClick={this.props.go} data-to="ideation">
 						Let's go
 					</Button>
 				</Div>

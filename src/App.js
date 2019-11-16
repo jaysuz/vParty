@@ -5,7 +5,8 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
 import Persik from './panels/Persik';
-import Start from './panels/Start'
+import Start from './panels/Start';
+import Ideation from "./panels/Ideation";
 
 class App extends React.Component {
 	constructor(props) {
@@ -14,6 +15,12 @@ class App extends React.Component {
 		this.state = {
 			activePanel: 'start',
 			fetchedUser: null,
+			themes: [
+				'cool',
+				'noice',
+				'sweet'
+			],
+			selectedTheme: null
 		};
 	}
 
@@ -34,12 +41,22 @@ class App extends React.Component {
 		this.setState({ activePanel: e.currentTarget.dataset.to })
 	};
 
+	updateTheme = theme => {
+		this.setState({ selectedTheme: theme })
+	};
+
 	render() {
 		return (
 			<View activePanel={this.state.activePanel}>
 				<Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
 				<Persik id="persik" go={this.go} />
 				<Start id="start" go={this.go}/>
+				<Ideation id="ideation"
+						  go={this.go}
+						  updateTheme={this.updateTheme}
+						  selectedTheme={this.state.selectedTheme}
+						  suggestions={this.state.themes}
+				/>
 			</View>
 		);
 	}
