@@ -2,16 +2,18 @@ import React from 'react';
 import discuss from './img/discuss.png';
 import OnboardingContainer from './components/OnboardingContainer';
 import Title from '../../components/Title';
+import OnboardingImage from './components/OnboardingImage';
+import OnboardingText from './components/OnboardingText';
 
 const Discuss = () => {
   return (
     <OnboardingContainer>
-      <img src={discuss} style={{ width: '100%', marginTop: '20vh' }} />
+      <OnboardingImage src={discuss} />
       <Title>Discuss</Title>
-      <p style={{ fontSize: 18, padding: '0px 50px', marginTop: '5vh' }}>
+      <OnboardingText>
         You can suggest items, vote on them and have a shared basket for
         everything.
-      </p>
+      </OnboardingText>
     </OnboardingContainer>
   );
 };
