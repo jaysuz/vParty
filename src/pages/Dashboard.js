@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Dashboard = props => (
-    <div id={props.id}>
-      <button onClick={props.go} data-to="suggestion">back</button>
+const Dashboard = ({id, go}) => (
+    <div id={id}>
+      <button onClick={() => go('suggestion')}>back</button>
       <h1>Dashboard</h1>
     </div>
 );

@@ -19,7 +19,7 @@ const Ideation = props => {
 
   return (
     <div id={props.id}>
-      <button onClick={props.go} data-to="onboarding">back</button>
+      <button onClick={() => props.go('onboarding')}>back</button>
       <h1>Choose Theme</h1>
       <div>Tell us more about your event!</div>
       <div>Select Theme:</div>
@@ -28,7 +28,7 @@ const Ideation = props => {
           <div key={i} onClick={() => props.updateTheme(theme)}>{theme}<br/></div>
       ))}
 
-      <button onClick={props.go} data-to="suggestion">
+      <button onClick={() => props.go('suggestion')}>
         Continue
       </button>
     </div>
