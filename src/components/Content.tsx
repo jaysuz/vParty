@@ -11,13 +11,14 @@ const ContentContainer = styled.div`
 const Content = ({
   children,
   showLogo = true,
-  title
+  ...rest
 }: {
   children: JSX.Element[] | JSX.Element;
   showLogo?: boolean;
   title: string;
-}) => (
-  <div>
+} & React.FC &
+  any) => (
+  <div {...rest}>
     <Header showLogo={showLogo} />
     <ContentContainer>{children}</ContentContainer>
   </div>
