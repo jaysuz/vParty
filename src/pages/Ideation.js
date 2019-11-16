@@ -19,7 +19,7 @@ const Ideation = props => {
 
   return (
     <div id={props.id}>
-      <button onClick={props.go} data-to="start">back</button>
+      <button onClick={props.go} data-to="onboarding">back</button>
       <h1>Choose Theme</h1>
       <div>Tell us more about your event!</div>
       <div>Select Theme:</div>
