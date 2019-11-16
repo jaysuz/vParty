@@ -38,7 +38,7 @@ class App extends React.Component<
     firebase.initializeApp(firebaseConfig);
 
     this.state = {
-      activePanel: "suggestion",
+      activePanel: "onboarding",
       fetchedUser: null,
       themes: ["cool", "noice", "sweet"],
       selectedTheme: null,
