@@ -1,6 +1,7 @@
 import React from 'react';
 import connect from '@vkontakte/vkui-connect';
-import './Suggestion.css';
+import './suggestion.css';
+import Header from '../../components/Header';
 
 // TODO: remove later
 /*
@@ -38,9 +39,12 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
   }, [token]);
 
   const getItemsByTheme = (theme) => {
+    console.log(theme)
     switch (theme) {
-      case 'party':
-        return '4000109446937,32222023154';
+      case 'birthday':
+        return '32888179722,32987433562,4000250046991,33000572377,32969133570,4000075418547,33005748499';
+      case 'halloween':
+        return '4000109446937,32222023154,32993494222,32384618692,32993494222';
       default:
         return '4000109446937,32222023154';
     }
@@ -48,14 +52,25 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
 
   return (
       <div id={id}>
-        <h1>Suggestions on: {selectedTheme}</h1>
-        <button onClick={() => go('ideation')}>Back</button>
-        {items.map((item, i) => <div key={i}>
-          {item.name}
-          <img height={200} src={item.picture} alt={item.name}/>
-        </div>)}
-        <div>
-          <button className='button-done' onClick={() => go('dashboard')}>
+        <Header showLogo={true}/>
+        <div className="title">Add to your party basket</div>
+
+        <div className="item-container">
+          {items.map((item, i) =>
+              <div className="item-card" key={i}>
+                <img className="item-image" width={171} height={100}
+                     src={item.picture} alt={item.name}/>
+                <div className="item-name">{item.name.substring(0, 12)}</div>
+                <div className="item-price">{item.price}.–</div>
+              </div>,
+          )}
+        </div>
+
+        <div className="footer">
+          <button className="button-back" onClick={() => go('ideation')}>
+            Back
+          </button>
+          <button className="button-done" onClick={() => go('dashboard')}>
             Done
           </button>
         </div>
