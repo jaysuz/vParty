@@ -10,12 +10,21 @@ import Ideation from "./panels/Ideation";
 import Suggestion from "./panels/Suggestion";
 
 import Onboarding from "./pages/onboarding";
-class App extends React.Component {
-  constructor(props) {
+class App extends React.Component<
+  {},
+  {
+    activePanel: any;
+    fetchedUser: any;
+    themes: any[];
+    selectedTheme: any;
+    token: any;
+  }
+> {
+  constructor(props: any) {
     super(props);
 
     this.state = {
-      activePanel: "onboarding",
+      activePanel: "home",
       fetchedUser: null,
       themes: ["cool", "noice", "sweet"],
       selectedTheme: null,
@@ -24,7 +33,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    connect.subscribe(e => {
+    connect.subscribe((e: any) => {
       switch (e.detail.type) {
         case "VKWebAppGetUserInfoResult":
           this.setState({ fetchedUser: e.detail.data });
@@ -48,18 +57,22 @@ class App extends React.Component {
     connect.send("VKWebAppGetAuthToken", { app_id: 7210223, scope: "" });
   }
 
-  go = e => {
+  go = (e: any) => {
     this.setState({ activePanel: e.currentTarget.dataset.to });
   };
 
-  updateTheme = theme => {
+  updateTheme = (theme: any) => {
     this.setState({ selectedTheme: theme });
   };
 
   render() {
     return (
-      <Root activeView="view">
-        <View activePanel={this.state.activePanel} style={{ height: "100%" }}>
+      <Root activeView="viewWithHeader">
+        <View
+          id="viewWithHeader"
+          activePanel={this.state.activePanel}
+          style={{ height: "100%" }}
+        >
           <Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
           <Persik id="persik" go={this.go} />
           <Start id="start" go={this.go} />
