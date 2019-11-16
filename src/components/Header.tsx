@@ -22,9 +22,9 @@ const Logo = styled.img`
   height: 46px;
 `;
 
-const Header = () => (
+const Header = ({ showLogo = true }: { showLogo?: boolean }) => (
   <>
-    <Logo src={logo} />
+    {showLogo && <Logo src={logo} />}
     <Container />
   </>
 );

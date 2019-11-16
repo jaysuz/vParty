@@ -3,18 +3,31 @@ import { Button } from '@vkontakte/vkui';
 import party from './img/party.jpg';
 import OnboardingContainer from './components/OnboardingContainer';
 import Title from '../../components/Title';
+import OnboardingImage from './components/OnboardingImage';
+import OnboardingText from './components/OnboardingText';
+import styled from 'styled-components';
+
+const ButtonContainer = styled.div`
+  margin: 10vh 10% auto 10%;
+`;
+
+const StyledButton = styled(Button)`
+  width: 100%;
+`;
 
 const Party = ({ go }: { go: (e: any) => void }) => {
   return (
     <OnboardingContainer>
-      <img src={party} style={{ width: '100%', marginTop: '20vh' }} />
+      <OnboardingImage src={party} />
       <Title>Party</Title>
-      <p style={{ fontSize: 18, padding: '0px 50px' }}>
+      <OnboardingText>
         Have fun on the party and don’t worry about the money.
-      </p>
-      <Button size="xl" level="2" onClick={go} data-to="ideation">
-        Let's go
-      </Button>
+      </OnboardingText>
+      <ButtonContainer>
+        <StyledButton size="l" onClick={go} data-to="ideation">
+          Let's get started!
+        </StyledButton>
+      </ButtonContainer>
     </OnboardingContainer>
   );
 };
