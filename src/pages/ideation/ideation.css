@@ -14,15 +14,15 @@
 }
 
 .theme-card {
-    width: 118px;
+    width: 100px;
     height: 150px;
     overflow: hidden;
     margin-bottom: 24px;
 }
 
 .theme-image {
-    width: 118px;
-    height: 118px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center top;
