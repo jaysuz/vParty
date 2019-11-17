@@ -1,0 +1,11 @@
+.cat-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.cat-image-wrapper {
+    display: flex;
+    justify-content: center;
+}
