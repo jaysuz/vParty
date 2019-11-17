@@ -58,7 +58,7 @@ const Dashboard = ({id, go, selectedTheme, selectedProducts, token}) => {
           <button className="button-back" onClick={() => go('suggestion')}>
             Back
           </button>
-          <button className="button-done" onClick={() => go(/* payment */)}>
+          <button className="button-done" onClick={() => go('finish')}>
             Pay
           </button>
         </div>
