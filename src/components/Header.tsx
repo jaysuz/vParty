@@ -16,7 +16,7 @@ const Container = styled.div`
 const Logo = styled.img`
   position: absolute;
   z-index: 101;
-  right: 15px;
+  left: 15px;
   top: 17px;
   width: 42px;
   height: 46px;
