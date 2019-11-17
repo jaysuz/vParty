@@ -29,11 +29,7 @@ const App = () => {
   const groupID = useVKGroupID();
   console.log(groupID);
 
-  useEffect(() => {
-
-  }, [selectedProducts]);
-
-  const updateSelectedProducts = React.useCallback(() => db.collection('communities').doc(groupID.toString()).update({
+  const updateSelectedProducts = (selectedProducts:any) => React.useCallback(() => db.collection('communities').doc(groupID.toString()).update({
     products: selectedProducts
   }), []);
 
@@ -59,13 +55,13 @@ const App = () => {
 
   const go = (id: Panels) => setActivePanel(id);
 
-  const addProduct = (productId: string) =>
-    setSelectedProducts(prevProducts => [...prevProducts, productId]);
+  const addProduct = (productId: string) => {
+    updateSelectedProducts([...selectedProducts, productId])
+  };
 
-  const removeProduct = (productId: string) =>
-    setSelectedProducts(prevProducts =>
-      prevProducts.filter(p => p !== productId)
-    );
+  const removeProduct = (productId: string) => {
+    updateSelectedProducts(selectedProducts.filter(p => p !== productId));
+  };
 
   return (
     <View className="global" activePanel={activePanel} header={false}>
