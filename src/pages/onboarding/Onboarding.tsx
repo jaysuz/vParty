@@ -6,7 +6,7 @@ import Party from './Party';
 import Dots from './Dots';
 import Content from '../../components/Content';
 
-const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: any) => void }) => {
+const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: Panels) => void }) => {
   const [index, setIndex] = React.useState(0);
   const onChangeIndex = (newIndex: number) => setIndex(newIndex);
   return (

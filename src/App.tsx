@@ -1,5 +1,5 @@
 import React from 'react';
-import connect from '@vkontakte/vkui-connect';
+
 import { View } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 import './general.css';
@@ -8,122 +8,53 @@ import Onboarding from './pages/onboarding';
 import Ideation from './pages/ideation/Ideation';
 import Suggestion from './pages/suggestion/Suggestion';
 import Dashboard from './pages/Dashboard';
+import useVK from './useVK';
+import useVKGroupID from './useVKGroupID';
 
-const getQueryParams = (): QueryParams => {
-  return window.location.search
-    .slice(1)
-    .split('&')
-    .map(queryParam => {
-      let kvp = queryParam.split('=');
-      return { key: kvp[0], value: kvp[1] };
-    })
-    .reduce((query: any, kvp) => {
-      const value = Number(kvp.value);
-      query[kvp.key] = isNaN(value) ? kvp.value : value;
-      return query;
-    }, {});
+const ViewContainer = () => {
+  const [activePanel, setActivePanel] = React.useState<Panels>('onboarding');
+  const [selectedProducts, setSelectedProducts] = React.useState<string[]>([
+    '4000109446937',
+    '32222023154'
+  ]);
+  const [selectedTheme, setSelectedTheme] = React.useState<any | undefined>(
+    undefined
+  );
+  const { token, fetchedUser } = useVK();
+  const groupID = useVKGroupID();
+  console.log(groupID);
+
+  const go = (id: Panels) => setActivePanel(id);
+
+  const addProduct = (productId: string) =>
+    setSelectedProducts(prevProducts => [...prevProducts, productId]);
+
+  const removeProduct = (productId: string) =>
+    setSelectedProducts(prevProducts =>
+      prevProducts.filter(p => p !== productId)
+    );
+
+  return (
+    <View className="global" activePanel={activePanel} header={false}>
+      <Onboarding id="onboarding" go={go} />
+      <Suggestion
+        id="suggestion"
+        go={go}
+        token={token}
+        selectedTheme={selectedTheme}
+        selectedProducts={selectedProducts}
+        addProduct={addProduct}
+        removeProduct={removeProduct}
+      />
+      <Ideation
+        id="ideation"
+        go={go}
+        updateTheme={(theme: any) => setSelectedTheme(theme)}
+        selectedTheme={selectedTheme}
+      />
+      <Dashboard id="dashboard" go={go} />
+    </View>
+  );
 };
 
-class App extends React.Component<
-  {},
-  {
-    activePanel: Panels;
-    fetchedUser: any;
-    themes: any[];
-    selectedTheme: any;
-    token: any;
-    selectedProducts: any;
-  }
-> {
-  constructor(props: any) {
-    super(props);
-
-    this.state = {
-      activePanel: 'onboarding',
-      fetchedUser: null,
-      themes: ['cool', 'noice', 'sweet'],
-      selectedTheme: null,
-      token: null,
-      selectedProducts: ['4000109446937', '32222023154']
-    };
-  }
-
-  componentDidMount() {
-    const { vk_group_id } = getQueryParams();
-
-    connect.subscribe((e: any) => {
-      console.log(e);
-      switch (e.detail.type) {
-        case 'VKWebAppGetUserInfoResult':
-          console.log(e.detail.data);
-          this.setState({ fetchedUser: e.detail.data });
-          break;
-        case 'VKWebAppAccessTokenReceived':
-          this.setState({ token: e.detail.data.access_token });
-          break;
-        default:
-      }
-    });
-
-    connect.send('VKWebAppGetUserInfo', {});
-    connect.send('VKWebAppGetAuthToken', { app_id: 7210223, scope: '' });
-    console.log(vk_group_id);
-    connect.send('VKWebAppGetCommunityAuthToken', {
-      app_id: 7210223,
-      group_id: vk_group_id,
-      scope: 'manage'
-    });
-  }
-
-  go = (id: Panels) => {
-    this.setState({ activePanel: id });
-  };
-
-  updateTheme = (theme: any) => {
-    this.setState({ selectedTheme: theme });
-  };
-
-  addProduct = (productId: any) => {
-    let selectedProducts = this.state.selectedProducts;
-    selectedProducts.push(productId);
-    this.setState({ selectedProducts: selectedProducts });
-    console.log(this.state.selectedProducts);
-  };
-
-  removeProduct = (productId: any) => {
-    let selectedProducts = this.state.selectedProducts;
-    selectedProducts.splice(selectedProducts.indexOf(productId), 1);
-    this.setState({ selectedProducts: selectedProducts });
-  };
-
-  render() {
-    return (
-      <View
-        className="global"
-        activePanel={this.state.activePanel}
-        header={false}
-      >
-        <Onboarding id="onboarding" go={this.go} />
-        <Suggestion
-          id="suggestion"
-          go={this.go}
-          token={this.state.token}
-          selectedTheme={this.state.selectedTheme}
-          selectedProducts={this.state.selectedProducts}
-          addProduct={this.addProduct}
-          removeProduct={this.removeProduct}
-        />
-        <Ideation
-          id="ideation"
-          go={this.go}
-          updateTheme={this.updateTheme}
-          selectedTheme={this.state.selectedTheme}
-          suggestions={this.state.themes}
-        />
-        <Dashboard id="dashboard" go={this.go} />
-      </View>
-    );
-  }
-}
-
-export default App;
+export default ViewContainer;
