@@ -50,21 +50,13 @@ class App extends React.Component<
     connect.subscribe((e: any) => {
       switch (e.detail.type) {
         case "VKWebAppGetUserInfoResult":
+          console.log(e.detail.data);
           this.setState({ fetchedUser: e.detail.data });
           break;
         case "VKWebAppAccessTokenReceived":
-          console.log(e);
           this.setState({ token: e.detail.data.access_token });
-          connect.send("VKWebAppCallAPIMethod", {
-            method: "junction.getCategories",
-            params: { count: 10, v: "5.103", access_token: this.state.token }
-          });
-          break;
-        case "VKWebAppCallAPIMethodResult":
-          console.log(e);
           break;
         default:
-          console.log(e.detail.type);
       }
     });
     connect.send("VKWebAppGetUserInfo", {});

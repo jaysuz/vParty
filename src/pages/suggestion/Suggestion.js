@@ -19,11 +19,9 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
     connect.subscribe((e) => {
       switch (e.detail.type) {
         case 'VKWebAppCallAPIMethodResult':
-          console.log(e.detail.data.response);
           setItems(e.detail.data.response);
           break;
         default:
-          console.log(e.detail.type);
       }
     });
     if (token)
