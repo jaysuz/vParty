@@ -6,8 +6,6 @@ import BasketItem from '../components/BasketItem';
 import Header from '../components/Header';
 import './dashboard.scss';
 
-import firebase from 'firebase';
-
 const Dashboard = ({
   id,
   go,

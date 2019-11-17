@@ -29,16 +29,15 @@ const App = () => {
   const groupID = useVKGroupID();
   console.log(groupID);
 
-  const updateSelectedProducts = (selectedProducts: any) =>
-    React.useCallback(() => {
-      if (groupID) {
-        db.collection('communities')
-          .doc(groupID.toString())
-          .update({
-            products: selectedProducts
-          });
-      }
-    }, []);
+  const updateSelectedProducts = (selectedProducts: any) => {
+    if (groupID) {
+      db.collection('communities')
+        .doc(groupID.toString())
+        .update({
+          products: selectedProducts
+        });
+    }
+  };
 
   useEffect(() => {
     if (groupID) {
