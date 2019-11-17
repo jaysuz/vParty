@@ -22,7 +22,7 @@ const Dashboard = ({id, go, selectedTheme, selectedProducts, token}) => {
         },
       });
       updateItems(data.response.map(item => {
-        const itemPrice = Number.parseFloat(item.price);
+        const itemPrice = Number(item.price);
         updatePrice(price => price + itemPrice);
         return {
           title: item.name.substring(0, 12),
