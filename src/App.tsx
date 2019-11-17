@@ -30,6 +30,16 @@ const App = () => {
   console.log(groupID);
 
   useEffect(() => {
+
+  }, [selectedProducts]);
+
+  const updateSelectedProducts = React.useCallback(() => db.collection('communities').doc(groupID.toString()).update({
+    products: selectedProducts
+  }), []);
+
+
+
+  useEffect(() => {
     if (groupID) {
       return db.collection('communities').doc(groupID.toString()).onSnapshot(async doc => {
         if (!doc.exists) {
@@ -81,6 +91,7 @@ const App = () => {
         selectedTheme={selectedTheme}
         selectedProducts={selectedProducts}
         token={token}
+        groupId={groupID}
       />
       <Finish id="finish" go={go} />
     </View>
