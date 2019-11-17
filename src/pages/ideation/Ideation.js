@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './ideation.css';
 import Header from '../../components/Header';
+import firebase from "../../firebase"
+
+const db = firebase.firestore()
 
 const Ideation = props => {
 
@@ -9,7 +12,7 @@ const Ideation = props => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const snapshot = await props.db.collection('themes').get();
+      const snapshot = await db.collection('themes').get();
       const suggestions = [];
       snapshot.forEach(doc => {
         suggestions.push({name: doc.id, image: doc.data().imageUrl});
@@ -54,7 +57,6 @@ Ideation.propTypes = {
   updateTheme: PropTypes.func.isRequired,
   suggestions: PropTypes.array.isRequired,
   selectedTheme: PropTypes.string,
-  db: PropTypes.object,
 };
 
 export default Ideation;

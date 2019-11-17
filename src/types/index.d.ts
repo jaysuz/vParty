@@ -6,7 +6,7 @@ interface QueryParams {
   vk_access_token_settings: string;
   vk_app_id: string;
   vk_are_notifications_enabled: string;
-  vk_group_id: string;
+  vk_group_id?: string;
   vk_is_app_user: string;
   vk_is_favorite: string;
   vk_language: string;
