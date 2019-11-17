@@ -8,7 +8,7 @@ import OnboardingText from './components/OnboardingText';
 import styled from 'styled-components';
 
 const ButtonContainer = styled.div`
-  margin: 10vh 10% auto 10%;
+  margin: 7vh 10% auto 10%;
 `;
 
 const StyledButton = styled(Button)`

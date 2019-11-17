@@ -3,8 +3,9 @@ import SwipeableViews from 'react-swipeable-views';
 import Welcome from './Welcome';
 import Discuss from './Discuss';
 import Party from './Party';
-import Dots from './Dots';
 import Content from '../../components/Content';
+import Dots from './Dots';
+import Navigation from './Navigation'
 
 const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: any) => void }) => {
   const [index, setIndex] = React.useState(0);
@@ -17,6 +18,7 @@ const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: any) => void }) => {
         <Party go={go} />
       </SwipeableViews>
       <Dots length={3} active={index} onChangeIndex={onChangeIndex} />
+      <Navigation length={3} active={index} onChangeIndex={onChangeIndex} />
     </Content>
   );
 };
