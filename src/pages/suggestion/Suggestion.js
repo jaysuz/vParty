@@ -39,7 +39,6 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
   }, [token]);
 
   const getItemsByTheme = (theme) => {
-    console.log(theme)
     switch (theme) {
       case 'birthday':
         return '32888179722,32987433562,4000250046991,33000572377,32969133570,4000075418547,33005748499';

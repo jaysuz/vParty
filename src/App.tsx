@@ -5,7 +5,7 @@ import "@vkontakte/vkui/dist/vkui.css";
 import './general.css';
 
 import Onboarding from "./pages/onboarding";
-import Ideation from "./pages/Ideation";
+import Ideation from "./pages/ideation/Ideation";
 import Suggestion from "./pages/suggestion/Suggestion";
 import Dashboard from "./pages/Dashboard";
 
@@ -38,7 +38,7 @@ class App extends React.Component<
     firebase.initializeApp(firebaseConfig);
 
     this.state = {
-      activePanel: "onboarding",
+      activePanel: "ideation",
       fetchedUser: null,
       themes: ["cool", "noice", "sweet"],
       selectedTheme: null,
