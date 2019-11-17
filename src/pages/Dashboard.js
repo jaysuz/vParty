@@ -66,7 +66,7 @@ const Dashboard = ({
       </h3>
       <div className="overview">
         <OverviewRow amount={price} title="Total sum" />
-        <OverviewRow amount={9} title="Amount per person" />
+        <OverviewRow amount={Math.round(price / 5)} title="Amount per person" />
         <OverviewRow amount={21} title="Saved money" />
       </div>
 
