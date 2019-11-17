@@ -7,6 +7,7 @@ import './general.css';
 import Onboarding from './pages/onboarding';
 import Ideation from './pages/ideation/Ideation';
 import Suggestion from './pages/suggestion/Suggestion';
+import Finish from './pages/finish/Finish';
 import Dashboard from './pages/Dashboard';
 
 import * as firebase from 'firebase/app';
@@ -24,7 +25,7 @@ const firebaseConfig = {
 
 class App extends React.Component<{},
     {
-      activePanel: Panels;
+      activePanel: any;
       fetchedUser: any;
       themes: any[];
       selectedTheme: any;
@@ -37,7 +38,7 @@ class App extends React.Component<{},
     firebase.initializeApp(firebaseConfig);
 
     this.state = {
-      activePanel: 'onboarding',
+      activePanel: 'finish',
       fetchedUser: null,
       themes: ['cool', 'noice', 'sweet'],
       selectedTheme: null,
@@ -109,6 +110,7 @@ class App extends React.Component<{},
               suggestions={this.state.themes}
           />
           <Dashboard id="dashboard" go={this.go}/>
+          <Finish id="finish" go={this.go}/>
         </View>
     );
   }
