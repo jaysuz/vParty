@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import { View } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
@@ -12,6 +12,10 @@ import Dashboard from './pages/Dashboard';
 import useVK from './useVK';
 import useVKGroupID from './useVKGroupID';
 
+import firebase from './firebase';
+
+const db = firebase.firestore();
+
 const App = () => {
   const [activePanel, setActivePanel] = React.useState<Panels>('onboarding');
   const [selectedProducts, setSelectedProducts] = React.useState<string[]>([
@@ -24,6 +28,24 @@ const App = () => {
   const { token, fetchedUser } = useVK();
   const groupID = useVKGroupID();
   console.log(groupID);
+
+  useEffect(() => {
+    if (groupID) {
+      return db.collection('communities').doc(groupID.toString()).onSnapshot(async doc => {
+        if (!doc.exists) {
+          await doc.ref.set({
+            id: groupID,
+            products: selectedProducts
+          });
+        } else {
+          const snapshot = doc.data();
+          if (snapshot) {
+            setSelectedProducts(snapshot.products);
+          }
+        }
+      });
+    }
+  }, [groupID]);
 
   const go = (id: Panels) => setActivePanel(id);
 

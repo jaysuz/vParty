@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
-const BasketItem = ({ title, moneyAmount, currency, description, image, go }) => {
+const BasketItem = ({ title, moneyAmount, currency, description, image, updateVotes }) => {
 
   const [positives, setPositives] = useState(0);
   const [negatives, setNegatives] = useState(0);
+
+  useEffect(() => {
+    updateVotes({
+      positives,
+      negatives
+    });
+  }, [positives, negatives]);
 
   return (
       <div className="basket-item">

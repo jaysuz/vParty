@@ -6,10 +6,20 @@ import BasketItem from '../components/BasketItem';
 import Header from '../components/Header';
 import './dashboard.scss';
 
-const Dashboard = ({id, go, selectedTheme, selectedProducts, token}) => {
+import firebase from 'firebase';
+
+const Dashboard = ({id, go, selectedTheme, selectedProducts, token, groupId}) => {
 
   const [items, updateItems] = useState([]);
   const [price, updatePrice] = useState(0);
+
+  const [votes, updateVotes] = useState(null);
+
+  useEffect(() => {
+    return firebase.firestore().collection('communities').doc(groupId).collection('products').onSnapshot(snapshot => {
+      snapshot.forEach()
+    })
+  }, votes);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +61,7 @@ const Dashboard = ({id, go, selectedTheme, selectedProducts, token}) => {
           {items.map((item, i) => (<BasketItem key={i} title={item.title}
                                                image={item.image}
                                                description={item.description}
-                                               moneyAmount={item.moneyAmount}/>))}
+                                               moneyAmount={item.moneyAmount} updateVotes={updateVotes}/>))}
         </div>
 
         <div className="footer">
