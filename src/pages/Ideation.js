@@ -1,20 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const Ideation = props => {
-
   const [themes, updateThemes] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const snapshot = await props.db.collection('themes').get();
-      const suggestions = [];
-      snapshot.forEach(doc => {
-        suggestions.push(doc.id);
-      });
-      updateThemes(suggestions);
-    };
-    fetchData().catch(error => console.error(error));
+    props.db
+      .collection('themes')
+      .get()
+      .then(snapshot => {
+        updateThemes(snapshot.docs.map(doc => doc.id));
+      })
+      .catch(error => console.error(error));
   }, []);
 
   return (
@@ -25,14 +22,15 @@ const Ideation = props => {
       <div>Select Theme:</div>
 
       {themes.map((theme, i) => (
-          <div key={i} onClick={() => props.updateTheme(theme)}>{theme}<br/></div>
+        <div key={i} onClick={() => props.updateTheme(theme)}>
+          {theme}
+          <br />
+        </div>
       ))}
 
-      <button onClick={() => props.go('suggestion')}>
-        Continue
-      </button>
+      <button onClick={() => props.go('suggestion')}>Continue</button>
     </div>
-  )
+  );
 };
 
 Ideation.propTypes = {
