@@ -40,7 +40,7 @@ const getQueryParams = () => {
 class App extends React.Component<
   {},
   {
-    activePanel: any;
+    activePanel: Panels;
     fetchedUser: any;
     themes: any[];
     selectedTheme: any;
