@@ -7,13 +7,20 @@
 
 /* item card */
 .item-card {
+    color: black;
     width: 171px;
     height: 176px;
-    background: #E8E8E8;
+    background-color: #E8E8E8;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     overflow: hidden;
     margin-bottom: 24px;
+    transition: background-color 500ms, color 500ms;
+}
+
+.item-card.selected {
+    background-color: #000000;
+    color: white;
 }
 
 .item-image {

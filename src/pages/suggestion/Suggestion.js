@@ -12,7 +12,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/1').
         //console.log(data)
     })*/
 
-const Suggestion = ({id, go, token, selectedTheme}) => {
+const Suggestion = ({id, go, token, selectedTheme, selectedProducts, addProduct, removeProduct}) => {
   const [items, setItems] = React.useState([]);
 
   React.useEffect(() => {
@@ -62,7 +62,17 @@ const Suggestion = ({id, go, token, selectedTheme}) => {
 
         <div className="item-container">
           {items.map((item, i) =>
-              <div className="item-card" key={i}>
+              <div className={
+                'item-card ' +
+                (selectedProducts.includes(item.product_id)
+                    ? 'selected' : '')} key={i}
+                   onClick={
+                     () => {
+                       if (!selectedProducts.includes(item.product_id))
+                         return addProduct(item.product_id);
+                       else return removeProduct(item.product_id);
+                     }
+                   }>
                 <img className="item-image" width={171} height={100}
                      src={item.picture} alt={item.name}/>
                 <div className="item-name">{item.name.substring(0, 12)}</div>
