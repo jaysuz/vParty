@@ -1,0 +1,79 @@
+#dashboard {
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  > h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  > h3 {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.overview {
+  box-sizing: border-box;
+  max-width: 600px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  color: white;
+  padding: 15px 20px;
+  background: #2D2D2D;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: revert;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.basket {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.basket-item {
+  display: flex;
+  position: relative;
+  &__img-container {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+    > img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+  &__reaction {
+    border: 1px solid rgba(0,0,0,0.2);
+    display: inline-block;
+    margin-left: 1rem;
+    border-radius: 1rem / 1rem;
+    padding: 0.5rem;
+    font-size: 0.7em;
+    &--positive {
+    }
+    &--negative {
+    }
+  }
+  .basket-item-title {
+    font-weight: bold;
+  }
+  .basket-item-price {
+    font-weight: bold;
+  }
+}

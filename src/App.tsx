@@ -54,7 +54,9 @@ const App = () => {
         selectedTheme={selectedTheme}
       />
       <Dashboard id="dashboard" go={go} />
-      <Finish id="finish" go={go}/>
+      <Finish id="finish" go={go} selectedTheme={selectedTheme}
+                     selectedProducts={selectedProducts}
+                     token={token}/>
     </View>
   );
 };
