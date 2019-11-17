@@ -88,28 +88,28 @@ class App extends React.Component<{},
 
   render() {
     return (
-        <View className='global' activePanel={this.state.activePanel}
-              header={false}>
-          <Onboarding id="onboarding" go={this.go}/>
-          <Suggestion
-              id="suggestion"
-              go={this.go}
-              token={this.state.token}
-              selectedTheme={this.state.selectedTheme}
-              selectedProducts={this.state.selectedProducts}
-              addProduct={this.addProduct}
-              removeProduct={this.removeProduct}
-          />
-          <Ideation
-              id="ideation"
-              go={this.go}
-              db={firebase.firestore()}
-              updateTheme={this.updateTheme}
-              selectedTheme={this.state.selectedTheme}
-              suggestions={this.state.themes}
-          />
-          <Dashboard id="dashboard" go={this.go}/>
-        </View>
+      <View className='global' activePanel={this.state.activePanel}
+            header={false}>
+        <Onboarding id="onboarding" go={this.go} />
+        <Suggestion
+          id="suggestion"
+          go={this.go}
+          token={this.state.token}
+          selectedTheme={this.state.selectedTheme}
+          selectedProducts={this.state.selectedProducts}
+          addProduct={this.addProduct}
+          removeProduct={this.removeProduct}
+        />
+        <Ideation
+          id="ideation"
+          go={this.go}
+          db={firebase.firestore()}
+          updateTheme={this.updateTheme}
+          selectedTheme={this.state.selectedTheme}
+          suggestions={this.state.themes}
+        />
+        <Dashboard id="dashboard" go={this.go} selectedTheme={this.state.selectedTheme} />
+      </View>
     );
   }
 }
