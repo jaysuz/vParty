@@ -11,7 +11,7 @@ import Dashboard from './pages/Dashboard';
 import useVK from './useVK';
 import useVKGroupID from './useVKGroupID';
 
-const ViewContainer = () => {
+const App = () => {
   const [activePanel, setActivePanel] = React.useState<Panels>('onboarding');
   const [selectedProducts, setSelectedProducts] = React.useState<string[]>([
     '4000109446937',
@@ -57,4 +57,4 @@ const ViewContainer = () => {
   );
 };
 
-export default ViewContainer;
+export default App;
