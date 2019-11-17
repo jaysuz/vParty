@@ -17,19 +17,25 @@
 .overview {
   box-sizing: border-box;
   max-width: 600px;
+  height: 100px;
   margin: 0 auto 1rem;
   color: white;
-  text-shadow: 0 0 8px rgb(20, 20, 20);
-  border-radius: 2rem;
-  padding: 2rem;
-  background: url("https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&w=1000&q=80");
+  padding: 15px 20px;
+  background: #2D2D2D;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
   &__row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     mix-blend-mode: revert;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
+    font-weight: bold;
   }
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .basket {
@@ -53,7 +59,7 @@
     }
   }
   &__reaction {
-    background-color: rgba(200, 200, 200, 0.6);
+    border: 1px solid rgba(0,0,0,0.2);
     display: inline-block;
     margin-left: 1rem;
     border-radius: 1rem / 1rem;
@@ -63,5 +69,11 @@
     }
     &--negative {
     }
+  }
+  .basket-item-title {
+    font-weight: bold;
+  }
+  .basket-item-price {
+    font-weight: bold;
   }
 }

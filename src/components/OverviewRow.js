@@ -6,13 +6,13 @@ const OverviewRow = ({ title, amount, currency }) => {
   return (
       <div className="overview__row">
         <div>{title}</div>
-        <div><span style={{marginRight: '0.25rem'}}>{currency}</span><span>{amount}</span></div>
+        <div><span>{amount}</span><span style={{marginLeft: '0.25rem'}}>{currency}</span></div>
       </div>
   );
 };
 
 OverviewRow.defaultProps = {
-  currency: '$'
+  currency: '.–'
 };
 
 OverviewRow.propTypes = {

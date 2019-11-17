@@ -6,7 +6,7 @@ import BasketItem from '../components/BasketItem';
 import Header from '../components/Header';
 import './dashboard.scss';
 
-const Dashboard = ({ id, go, selectedTheme, selectedProducts, token }) => {
+const Dashboard = ({id, go, selectedTheme, selectedProducts, token}) => {
 
   const [items, updateItems] = useState([]);
   const [price, updatePrice] = useState(0);
@@ -23,13 +23,14 @@ const Dashboard = ({ id, go, selectedTheme, selectedProducts, token }) => {
       });
       updateItems(data.response.map(item => {
         const itemPrice = Number.parseFloat(item.price);
-        updatePrice(price + itemPrice);
+        updatePrice(price => price + itemPrice);
         return {
           title: item.name.substring(0, 12),
           description: item.description,
-          moneyAmount: itemPrice
-        }
-      }))
+          moneyAmount: itemPrice,
+          image: item.picture
+        };
+      }));
     };
     fetchData().catch(error => console.error(error));
   }, []);
@@ -38,15 +39,21 @@ const Dashboard = ({ id, go, selectedTheme, selectedProducts, token }) => {
       <div id={id}>
         <Header showLogo={true}/>
         <h1>Party Basket</h1>
-        <h3>{selectedTheme ? selectedTheme : 'Cool'} party</h3>
+        <h3 className="capitalize">{selectedTheme ? selectedTheme : 'Cool'}
+          party</h3>
         <div className="overview">
           <OverviewRow amount={price} title="Total sum"/>
-          <OverviewRow amount={9.10} title="Amount per person"/>
-          <OverviewRow amount={20.90} title="Saved money"/>
+          <OverviewRow amount={9} title="Amount per person"/>
+          <OverviewRow amount={21} title="Saved money"/>
         </div>
+
         <div className="basket">
-          {items.map((item, i) => (<BasketItem key={i} title={item.title} description={item.description} moneyAmount={item.moneyAmount}/>))}
+          {items.map((item, i) => (<BasketItem key={i} title={item.title}
+                                               image={item.image}
+                                               description={item.description}
+                                               moneyAmount={item.moneyAmount}/>))}
         </div>
+
         <div className="footer">
           <button className="button-back" onClick={() => go('suggestion')}>
             Back
@@ -63,7 +70,7 @@ Dashboard.propTypes = {
   id: PropTypes.string.isRequired,
   go: PropTypes.func.isRequired,
   selectedTheme: PropTypes.string,
-  selectedProducts: PropTypes.array
+  selectedProducts: PropTypes.array,
 };
 
 export default Dashboard;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
-const BasketItem = ({ title, moneyAmount, currency, description, go }) => {
+const BasketItem = ({ title, moneyAmount, currency, description, image, go }) => {
 
   const [positives, setPositives] = useState(0);
   const [negatives, setNegatives] = useState(0);
@@ -9,12 +9,12 @@ const BasketItem = ({ title, moneyAmount, currency, description, go }) => {
   return (
       <div className="basket-item">
         <figure className="basket-item__img-container">
-          <img src="https://picsum.photos/200/200" alt="Product Icon"/>
+          <img src={image} alt="Product Icon"/>
         </figure>
-        <div style={{flex: 'auto', borderBottom: '1px solid rgba(200, 200, 200, 0.6)', padding: '1rem 1rem 1rem 0'}}>
+        <div style={{flex: 'auto', borderBottom: '1px solid rgba(200, 200, 200, 0.6)', padding: '1rem 1rem 1rem 0', width: '60%'}}>
           <div style={{display: 'flex', justifyContent: 'space-between'}}>
-            <div>{title}</div>
-            <div><span>{currency}</span><span>{moneyAmount}</span></div>
+            <div className="basket-item-title">{title}</div>
+            <div className="basket-item-price"><span>{moneyAmount}</span><span>{currency}</span></div>
           </div>
           <p style={{maxWidth: '80%'}}>{description}</p>
         </div>
@@ -31,7 +31,7 @@ const BasketItem = ({ title, moneyAmount, currency, description, go }) => {
 };
 
 BasketItem.defaultProps = {
-  currency: '$'
+  currency: '.–'
 };
 
 BasketItem.propTypes = {
