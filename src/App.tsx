@@ -7,6 +7,7 @@ import './general.css';
 import Onboarding from './pages/onboarding';
 import Ideation from './pages/ideation/Ideation';
 import Suggestion from './pages/suggestion/Suggestion';
+import Finish from './pages/finish/Finish';
 import Dashboard from './pages/Dashboard';
 import useVK from './useVK';
 import useVKGroupID from './useVKGroupID';
@@ -53,6 +54,7 @@ const App = () => {
         selectedTheme={selectedTheme}
       />
       <Dashboard id="dashboard" go={go} />
+      <Finish id="finish" go={go}/>
     </View>
   );
 };

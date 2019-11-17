@@ -1,6 +1,6 @@
 declare module '@vkontakte/vkui-connect';
 
-type Panels = 'onboarding' | 'suggestion' | 'ideation' | 'dashboard';
+type Panels = 'onboarding' | 'suggestion' | 'ideation' | 'dashboard' | 'finish';
 
 interface QueryParams {
   vk_access_token_settings: string;
