@@ -42,9 +42,7 @@ class App extends React.Component<{},
       themes: ['cool', 'noice', 'sweet'],
       selectedTheme: null,
       token: null,
-      selectedProducts: [
-        '4000109446937', '32222023154',
-      ],
+      selectedProducts: [],
     };
   }
 
@@ -108,7 +106,12 @@ class App extends React.Component<{},
           selectedTheme={this.state.selectedTheme}
           suggestions={this.state.themes}
         />
-        <Dashboard id="dashboard" go={this.go} selectedTheme={this.state.selectedTheme} />
+        <Dashboard id="dashboard"
+                   go={this.go}
+                   selectedTheme={this.state.selectedTheme}
+                   selectedProducts={this.state.selectedProducts}
+                   token={this.state.token}
+        />
       </View>
     );
   }
