@@ -11,7 +11,7 @@ const Welcome = () => {
       <div style={{ marginTop: '20vh' }}>
         <Title>Organise your Party</Title>
         <OnboardingText>
-          Use vParty to organise and purchase all your items together
+          Use vkParty to organise and purchase all your items together
         </OnboardingText>
       </div>
     </OnboardingContainer>
