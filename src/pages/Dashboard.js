@@ -16,7 +16,7 @@ const Dashboard = ({id, go, selectedTheme, selectedProducts, token}) => {
       const data = await connect.sendPromise('VKWebAppCallAPIMethod', {
         'method': 'junction.getByIds',
         'params': {
-          'ids': selectedProducts,
+          'ids': selectedProducts.join(','),
           'v': '5.103',
           'access_token': token,
         },
@@ -43,7 +43,7 @@ const Dashboard = ({id, go, selectedTheme, selectedProducts, token}) => {
           party</h3>
         <div className="overview">
           <OverviewRow amount={price} title="Total sum"/>
-          <OverviewRow amount={9} title="Amount per person"/>
+          <OverviewRow amount={Math.floor(price / 5)} title="Amount per person"/>
           <OverviewRow amount={21} title="Saved money"/>
         </div>
 

@@ -14,10 +14,7 @@ import useVKGroupID from './useVKGroupID';
 
 const App = () => {
   const [activePanel, setActivePanel] = React.useState<Panels>('onboarding');
-  const [selectedProducts, setSelectedProducts] = React.useState<string[]>([
-    '4000109446937',
-    '32222023154'
-  ]);
+  const [selectedProducts, setSelectedProducts] = React.useState<string[]>([]);
   const [selectedTheme, setSelectedTheme] = React.useState<any | undefined>(
     undefined
   );
