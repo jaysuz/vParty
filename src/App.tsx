@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 import { View } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
@@ -29,34 +29,42 @@ const App = () => {
   const groupID = useVKGroupID();
   console.log(groupID);
 
-  const updateSelectedProducts = (selectedProducts:any) => React.useCallback(() => db.collection('communities').doc(groupID.toString()).update({
-    products: selectedProducts
-  }), []);
-
-
+  const updateSelectedProducts = (selectedProducts: any) =>
+    React.useCallback(() => {
+      if (groupID) {
+        db.collection('communities')
+          .doc(groupID.toString())
+          .update({
+            products: selectedProducts
+          });
+      }
+    }, []);
 
   useEffect(() => {
     if (groupID) {
-      return db.collection('communities').doc(groupID.toString()).onSnapshot(async doc => {
-        if (!doc.exists) {
-          await doc.ref.set({
-            id: groupID,
-            products: selectedProducts
-          });
-        } else {
-          const snapshot = doc.data();
-          if (snapshot) {
-            setSelectedProducts(snapshot.products);
+      return db
+        .collection('communities')
+        .doc(groupID.toString())
+        .onSnapshot(async doc => {
+          if (!doc.exists) {
+            await doc.ref.set({
+              id: groupID,
+              products: selectedProducts
+            });
+          } else {
+            const snapshot = doc.data();
+            if (snapshot) {
+              setSelectedProducts(snapshot.products);
+            }
           }
-        }
-      });
+        });
     }
   }, [groupID]);
 
   const go = (id: Panels) => setActivePanel(id);
 
   const addProduct = (productId: string) => {
-    updateSelectedProducts([...selectedProducts, productId])
+    updateSelectedProducts([...selectedProducts, productId]);
   };
 
   const removeProduct = (productId: string) => {
