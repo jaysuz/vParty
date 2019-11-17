@@ -21,16 +21,16 @@ const Dashboard = ({
 
   const [votes, updateVotes] = useState(null);
 
-  useEffect(() => {
-    return firebase
-      .firestore()
-      .collection('communities')
-      .doc(groupId)
-      .collection('products')
-      .onSnapshot(snapshot => {
-        snapshot.forEach();
-      });
-  }, votes);
+  // useEffect(() => {
+  //   return firebase
+  //     .firestore()
+  //     .collection('communities')
+  //     .doc(groupId)
+  //     .collection('products')
+  //     .onSnapshot(snapshot => {
+  //       snapshot.forEach();
+  //     });
+  // }, votes);
 
   useEffect(() => {
     const fetchData = async () => {
