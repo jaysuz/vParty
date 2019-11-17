@@ -53,10 +53,14 @@ const App = () => {
         updateTheme={(theme: any) => setSelectedTheme(theme)}
         selectedTheme={selectedTheme}
       />
-      <Dashboard id="dashboard" go={go} />
-      <Finish id="finish" go={go} selectedTheme={selectedTheme}
-                     selectedProducts={selectedProducts}
-                     token={token}/>
+      <Dashboard
+        id="dashboard"
+        go={go}
+        selectedTheme={selectedTheme}
+        selectedProducts={selectedProducts}
+        token={token}
+      />
+      <Finish id="finish" go={go} />
     </View>
   );
 };
