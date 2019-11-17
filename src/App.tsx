@@ -22,7 +22,7 @@ const firebaseConfig = {
   appId: '1:633693236641:web:04ff34eda4a7e133a3efe0'
 };
 
-const getQueryParams = () => {
+const getQueryParams = (): QueryParams => {
   return window.location.search
     .slice(1)
     .split('&')
@@ -31,7 +31,8 @@ const getQueryParams = () => {
       return { key: kvp[0], value: kvp[1] };
     })
     .reduce((query: any, kvp) => {
-      query[kvp.key] = kvp.value;
+      const value = Number(kvp.value);
+      query[kvp.key] = isNaN(value) ? kvp.value : value;
       return query;
     }, {});
 };
@@ -63,10 +64,10 @@ class App extends React.Component<
   }
 
   componentDidMount() {
-    const queryParams: QueryParams = getQueryParams();
-    console.log(queryParams.vk_group_id);
+    const { vk_group_id } = getQueryParams();
 
     connect.subscribe((e: any) => {
+      console.log(e);
       switch (e.detail.type) {
         case 'VKWebAppGetUserInfoResult':
           console.log(e.detail.data);
@@ -81,6 +82,12 @@ class App extends React.Component<
 
     connect.send('VKWebAppGetUserInfo', {});
     connect.send('VKWebAppGetAuthToken', { app_id: 7210223, scope: '' });
+    console.log(vk_group_id);
+    connect.send('VKWebAppGetCommunityAuthToken', {
+      app_id: 7210223,
+      group_id: vk_group_id,
+      scope: 'manage'
+    });
   }
 
   go = (id: Panels) => {
