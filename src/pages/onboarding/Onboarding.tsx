@@ -7,7 +7,7 @@ import Content from '../../components/Content';
 import Dots from './Dots';
 import Navigation from './Navigation'
 
-const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: any) => void }) => {
+const Onboarding = ({ id, go }: { id: 'onboarding'; go: (e: Panels) => void }) => {
   const [index, setIndex] = React.useState(0);
   const onChangeIndex = (newIndex: number) => setIndex(newIndex);
   return (
