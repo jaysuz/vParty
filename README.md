@@ -2,15 +2,15 @@
 
 ![](demo/vkPartyDemo.gif)
 
-We want to revolutionise event planning. VKParty allows VK event planners to engage in social commerce via AliExpress and split the bill with attendees.
-
-Plan your event with VK and AliExpress.
+**We want to revolutionise event planning. VKParty allows VK event planners to engage in social commerce via AliExpress and split the bill with attendees.**
 
 Use VKParty to organise and purchase all your items together. Suggest items, vote on them and have a shared basket for everything.
 
-The design is made with figma:
-
 [Prototype demo](https://www.figma.com/proto/XgmyQOAxSGradREp7r86iz/VKParty?node-id=86%3A248&scaling=scale-down)
+
+[VK Mini-app](https://vk.com/app7210223)
+
+[Junction Submission](https://app.hackjunction.com/projects/junction-2019/view/5dcf176c62c4f1002bdd4bfb)
 
 ## How to install
 
