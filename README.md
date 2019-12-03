@@ -1,7 +1,7 @@
 # VKParty
 
 <p align="center">
-  <img src="demo/vkPartyDemo.gif">
+  <a href="#"><img src="demo/vkPartyDemo.gif"/></a>
 </p>
 
 **We want to revolutionise event planning. VKParty allows VK event planners to engage in social commerce via AliExpress and split the bill with attendees.**
