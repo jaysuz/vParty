@@ -1,6 +1,6 @@
 # VKParty
 
-![](demo/vkPartyDemo.gif.gif)
+![](demo/vkPartyDemo.gif)
 
 We want to revolutionise event planning. VKParty allows VK event planners to engage in social commerce via AliExpress and split the bill with attendees.
 
